@@ -47,6 +47,15 @@
           $( 'div.message_holder' ).append( '<div><b style="color: #002">'+msg.user_name+'</b> creating</div>' )
         }
       })
+
+
+ 	socket.on( 'create response', function( msg ) {
+        console.log( msg )
+        if( typeof msg.user_name !== 'undefined' ) {
+          $( 'h3' ).remove()
+          $( 'div.message_holder' ).append( '<div><b style="color: #002">'+msg.user_name+'</b> created. WELCOME</div>' )
+        }
+      })
     </script>
 
   </body>

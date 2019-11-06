@@ -40,7 +40,7 @@ def handle_my_custom_event(json, methods=['GET', 'POST']):
 
     pre, ext = os.path.splitext(complete_file_name)
     os.rename(complete_file_name, pre + ".done")
-
+    socketio.emit('create response', json, callback=messageReceived)
 
 if __name__ == '__main__':
     socketio.run(app, debug=True)
